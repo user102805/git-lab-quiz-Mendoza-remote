@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Jacinth Dhane Mendoza</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-color: #f3f4f6;
+            --paper-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .resume-container {
+            background-color: var(--paper-bg);
+            width: 100%;
+            max-width: 950px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .left-column {
+            width: 35%;
+            background-color: #fafafa;
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .right-column {
+            width: 65%;
+            padding: 2.5rem;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--paper-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.25rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .left-column .section-title {
+            font-size: 1.1rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        h2.job-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul.bullet-list {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        ul.bullet-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-item {
+            margin-bottom: 1rem;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        .skills-group {
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-group strong {
+            display: block;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .cert-item {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .cert-title {
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .summary-text {
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item {
+            margin-bottom: 1.75rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .experience-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-role {
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .reference-card {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .reference-card strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+            }
+            .left-column, .right-column {
+                width: 100%;
+                border-right: none;
+            }
+            .left-column {
+                border-bottom: 1px solid var(--border-color);
+                padding: 2rem 1.5rem;
+            }
+            .right-column {
+                padding: 2rem 1.5rem;
+            }
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+            .experience-header {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <aside class="left-column">
+            <div class="profile-container">
+                <img src="IMG_20260406_003059.png" alt="Jacinth Dhane Mendoza" class="profile-img">
+            </div>
+
+            <section>
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <p>985-1773-909</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <p>jdmendoza102805@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Address</span>
+                    <p>117 Antaran St., Poblacion,<br>Santa Fe, Romblon</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Education</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2028 – 2030</div>
+                    <h3>Master of Information Technology</h3>
+                    <p>Romblon State University</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 – 2028</div>
+                    <h3>BS in Information Technology</h3>
+                    <p>Romblon State University</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Core Technologies</h2>
+                <div class="skills-group">
+                    <strong>Languages</strong>
+                    <p>Python, Java, C++, JavaScript</p>
+                </div>
+                <div class="skills-group">
+                    <strong>Web Tech</strong>
+                    <p>HTML5, CSS3</p>
+                </div>
+                <div class="skills-group">
+                    <strong>Databases</strong>
+                    <p>Relational Database Design, SQL, MySQL</p>
+                </div>
+                <div class="skills-group">
+                    <strong>Hardware</strong>
+                    <p>Arduino Integration, Embedded C</p>
+                </div>
+                <div class="skills-group">
+                    <strong>Tools</strong>
+                    <p>Git/Version Control, VS Code, UI/UX Prototyping</p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Certifications & Workshops</h2>
+                <ul>
+                    <li class="cert-item">
+                        <span class="cert-title">Oracle Certified Associate</span>
+                        Java SE Programmer
+                    </li>
+                    <li class="cert-item">
+                        <span class="cert-title">Google IT Support</span>
+                        Professional Certificate
+                    </li>
+                    <li class="cert-item">
+                        <span class="cert-title">DevCon Summit: Software Architecture Trends</span>
+                        DevCon Philippines | Oct 2025
+                    </li>
+                    <li class="cert-item">
+                        <span class="cert-title">Google DevFest Philippines</span>
+                        Google Developer Groups (GDG) | Nov 2025
+                    </li>
+                    <li class="cert-item">
+                        <span class="cert-title">IoT & Embedded Systems Workshop</span>
+                        PSITE | Feb 2026
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="right-column">
+            
+            <header>
+                <h1>Jacinth Dhane Mendoza</h1>
+                <h2 class="job-title">Software Engineer</h2>
+            </header>
+
+            <section>
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary-text">
+                    Results-oriented IT professional with comprehensive experience across the full software development lifecycle. Adept at translating complex business requirements into scalable, user-friendly applications and engineering robust, secure database architectures. Proven ability to bridge the gap between technical infrastructure and operational goals, ensuring that digital systems are optimized for performance and long-term usability. A strong analytical thinker and collaborative team player committed to continuous learning, writing clean code, and delivering high-quality technical results that drive digital transformation in fast-paced environments.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="section-title">Technical Experience</h2>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Integrated Tourism & Business Database Management System</h3>
+                        <span class="experience-date">March 2026</span>
+                    </div>
+                    <div class="experience-role">Lead Systems Developer</div>
+                    <ul class="bullet-list">
+                        <li>Architected and deployed a comprehensive relational database management system to streamline visitor tracking and centralize local business promotion data.</li>
+                        <li>Developed a full-stack interface utilizing HTML, CSS, and JavaScript to provide intuitive dashboards for data visualization and administrative control.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Interactive Learning Flashcard System</h3>
+                        <span class="experience-date">April 2026</span>
+                    </div>
+                    <div class="experience-role">Application Developer</div>
+                    <ul class="bullet-list">
+                        <li>Engineered a responsive, logic-based educational application focused on maximizing user engagement and memory retention.</li>
+                        <li>Programmed backend algorithms to dynamically track user progression, evaluate performance data, and automatically scale difficulty levels.</li>
+                        <li>Designed a clean, accessible UI/UX to facilitate seamless learning experiences.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Stark Technology Inc.</h3>
+                        <span class="experience-date">Dec 2024 - Feb 2026</span>
+                    </div>
+                    <div class="experience-role">IT Support & Technical Assistant | 123 Marvel St., Quezon City</div>
+                    <ul class="bullet-list">
+                        <li>Provided technical support, system troubleshooting, and digital administration for daily operations and events.</li>
+                        <li>Drafted technical documentation and maintained system integrity for various programs and hardware setups.</li>
+                    </ul>
+                </article>
+
+            </section>
+
+            <section>
+                <h2 class="section-title">References</h2>
+                <div class="references-grid">
+                    <div class="reference-card">
+                        <strong>Dr. Catherine Bhel Aguila</strong>
+                        <p>Director, CCMADI<br>
+                        Romblon State University<br>
+                        Liwanag, Odiongan, Romblon</p>
+                    </div>
+                    <div class="reference-card">
+                        <strong>PJ Zeder Drilon</strong>
+                        <p>Instructor, CCMADI<br>
+                        Romblon State University<br>
+                        Liwanag, Odiongan, Romblon</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
+
